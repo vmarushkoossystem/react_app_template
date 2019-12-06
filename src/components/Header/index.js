@@ -1,14 +1,15 @@
 import React from 'react';
-import './Header.scss';
+import { Link } from 'react-router-dom';
+import './styles.scss';
 
-const Header = props => {
+const Header = () => {
   return (
     <div className="app-routes">
-      <a className="app-route-btn" href="/">Home</a>
-      <a className="app-route-btn" href="/contacts">Contacts</a>
-      <a className="app-route-btn" href="/about">About</a>
-      <a className="app-route-btn" href="/counter">Counter</a>
-      <a className="app-route-btn" href="/request">Request</a>
+      <Link className="app-route-btn" to="/">Home</Link>
+      <Link className="app-route-btn" to="/contacts">Contacts</Link>
+      <Link className="app-route-btn" to="/about">About</Link>
+      <Link className="app-route-btn" to="/counter">Counter</Link>
+      <Link className="app-route-btn" to="/request">Request</Link>
     </div>
   );
 };
