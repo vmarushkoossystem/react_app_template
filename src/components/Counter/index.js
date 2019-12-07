@@ -1,11 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { increment, decrement, reset } from '../../actions/counter';
 
-const Counter = () => {
+const Counter = props => {
+  const incrementHandler = () => {
+    props.dispatch(increment());
+  };
+
+  const decrementHandler = () => {
+    props.dispatch(decrement());
+  };
+
+  const resetHandler = () => {
+    props.dispatch(reset());
+  };
+
   return (
-    <div>
-      Counter page
-    </div>
+    <>
+      <h1>Count: {props.counter}</h1>
+      <div className="buttons-container">
+        <button onClick={incrementHandler}>+</button>
+        <button onClick={decrementHandler}>-</button>
+        <button onClick={resetHandler}>Reset</button>
+      </div>
+    </>
   );
 };
 
-export default Counter;
+const mapStateToProps = state => {
+  return {
+    counter: state.counter
+  };
+};
+
+export default connect(mapStateToProps)(Counter);

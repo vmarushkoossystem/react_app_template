@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import Header from '../Header';
-import Index from '../Index';
+import Home from '../Home';
 import Contacts from '../Contacts';
 import About from '../About';
 import Counter from '../Counter';
@@ -40,7 +40,7 @@ const App = () => {
         <Route
           exact
           path="/"
-          component={Index}
+          component={Home}
         />
         <Redirect
           to="/"

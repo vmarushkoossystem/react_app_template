@@ -1,0 +1,6 @@
+export default {
+  ENVIRONMENT: {
+    DEVELOPMENT: 'DEVELOPMENT',
+    PRODUCTION: 'PRODUCTION'
+  }
+};
