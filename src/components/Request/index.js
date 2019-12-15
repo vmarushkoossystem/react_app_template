@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { makeRequest } from '../../services/request';
+import React from 'react';
+import { connect } from 'react-redux';
+import {
+  makeRequest as actionsMakeRequest
+} from '../../actions/request';
 
-const Request = () => {
-  let [itemId, setItemId] = useState(1);
-  let [content, setContent] = useState('No content');
+const Request = props => {
+  let {
+    id,
+    data,
+    makeRequest
+  } = props;
 
-  const makeRequestHandler = async () => {
-    let content = await makeRequest(itemId);
-    setContent(JSON.stringify(content, null, 2));
-    setItemId(itemId + 1);
-  };
+  const makeRequestHandler = () => makeRequest(id);
+  const content = id > 0 ? JSON.stringify(data, null, 2) : data;
 
   return (
     <>
@@ -19,4 +22,18 @@ const Request = () => {
   );
 };
 
-export default Request;
+const mapStateToProps = state => {
+  const {lastId, data} = state.request;
+  return {
+    id: lastId,
+    data
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    makeRequest: id => dispatch(actionsMakeRequest(id))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Request);

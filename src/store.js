@@ -11,7 +11,8 @@ const middleware = [
   thunk,
   routerMiddleware(history)
 ];
-const composeEnhancers = ((process.env.REACT_ENV === ENVIRONMENT.DEVELOPMENT) && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
+const composeEnhancers = ((process.env.NODE_ENV === ENVIRONMENT.DEVELOPMENT) && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 export default createStore(
   rootReducer,
