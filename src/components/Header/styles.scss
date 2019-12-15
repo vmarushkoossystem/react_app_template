@@ -10,7 +10,10 @@
     text-decoration: none;
 
     &:hover {
-      border-bottom: 1px solid black;
+      &:visited {
+        border-bottom: 1px solid black;
+        color: #000000;
+      }
     }
 
     &:active {
@@ -18,10 +21,13 @@
     }
 
     &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      color: initial;
+    &:visited {
+      color: #666666;
+
+      &.selected {
+        border-bottom: 1px solid black;
+        color: #000000;
+      }
     }
   }
 }

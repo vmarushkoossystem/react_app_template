@@ -1,15 +1,46 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 const Header = () => {
   return (
     <div className="app-routes">
-      <Link className="app-route-btn" to="/">Home</Link>
-      <Link className="app-route-btn" to="/contacts">Contacts</Link>
-      <Link className="app-route-btn" to="/about">About</Link>
-      <Link className="app-route-btn" to="/counter">Counter</Link>
-      <Link className="app-route-btn" to="/request">Request</Link>
+      <NavLink
+        exact
+        className="app-route-btn"
+        activeClassName="selected"
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className="app-route-btn"
+        activeClassName="selected"
+        to="/contacts"
+      >
+        Contacts
+      </NavLink>
+      <NavLink
+        className="app-route-btn"
+        activeClassName="selected"
+        to="/about"
+      >
+        About
+      </NavLink>
+      <NavLink
+        className="app-route-btn"
+        activeClassName="selected"
+        to="/counter"
+      >
+        Counter
+      </NavLink>
+      <NavLink
+        className="app-route-btn"
+        activeClassName="selected"
+        to="/request"
+      >
+        Request
+      </NavLink>
     </div>
   );
 };
