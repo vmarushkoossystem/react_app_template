@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { increment, decrement, reset } from '../../actions/counter';
+import './styles.scss';
 
 const Counter = props => {
   const incrementHandler = () => {
